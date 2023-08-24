@@ -1,0 +1,9 @@
+<form method="get" action="/search_results">
+    <input type="text" name="search_query" placeholder="Search for a movie">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for movie in similar_movies %}
+        <li>{{ movie }}</li>
+    {% endfor %}
+</ul>

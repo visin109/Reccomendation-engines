@@ -1,0 +1,7 @@
+<h2>You liked '{{ movie_title }}'. What type of recommendation would you like?</h2>
+<form method="post" action="/similar_movies_recommendation?movie={{ movie_title }}">
+    <button type="submit">Similar Movies</button>
+</form>
+<form method="post" action="/similar_genres_recommendation?movie={{ movie_title }}">
+    <button type="submit">Same Genre Movies</button>
+</form>

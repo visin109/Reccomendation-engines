@@ -1,0 +1,42 @@
+<form method="post" action="/item_based_recommendations?movie={{ movie_title }}">
+    <input type="hidden" name="feedback" value="like">
+    <button type="submit">Like</button>
+</form>
+<form method="post" action="/item_based_recommendations?movie={{ movie_title }}">
+    <input type="hidden" name="feedback" value="dislike">
+    <button type="submit">Dislike</button>
+</form>
+{% if similar_movies %}
+
+    <h2>Recommended Movies:</h2>
+    <ul>
+        {% for movie in similar_movies %}
+            <li>{{ movie }}</li>
+            <form method="post" action="/item_based_recommendations?movie={{ movie }}">
+                <input type="hidden" name="feedback" value="like">
+                <button type="submit">Like</button>
+            </form>
+            <form method="post" action="/item_based_recommendations?movie={{ movie }}">
+                <input type="hidden" name="feedback" value="dislike">
+                <button type="submit">Dislike</button>
+            </form>
+        {% endfor %}
+    </ul>
+    
+{% elif top_rated_movies %}
+    <h2>Top Rated Movies:</h2>
+    <ul>
+        {% for movie in top_rated_movies %}
+            <li>{{ movie }}</li>
+            <form method="post" action="/item_based_recommendations?movie={{ movie }}">
+                <input type="hidden" name="feedback" value="like">
+                <button type="submit">Like</button>
+            </form>
+            <form method="post" action="/item_based_recommendations?movie={{ movie }}">
+                <input type="hidden" name="feedback" value="dislike">
+                <button type="submit">Dislike</button>
+            </form>
+        {% endfor %}
+    </ul>
+    
+{% endif %}
